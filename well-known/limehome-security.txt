@@ -1,0 +1,6 @@
+Contact: mailto:security@limehome.com
+Policy: https://limehome.com/security
+Preferred-Languages: en
+Canonical: https://limehome.com/.well-known/security.txt
+Encryption: https://limehome.com/.well-known/pgp-key.txt
+Expires: 2028-11-27T00:00:00Z

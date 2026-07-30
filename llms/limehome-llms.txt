@@ -1,0 +1,52 @@
+# Limehome
+
+> Limehome GmbH is a Munich-headquartered digital hospitality operator founded in 2018. It designs, leases and runs fully-equipped design apartments and aparthotels across Europe with a 100% digital guest journey — book online, receive an access code, check in and out contactlessly with no on-site reception staff.
+
+Generated: 2026-07-19
+Method: generated (Limehome publishes no llms.txt of its own; https://www.limehome.com/llms.txt returns the site's SPA shell, not a document)
+Source: https://github.com/api-evangelist/limehome
+
+## Important: no public API
+
+Limehome does **not** publish a developer program. There is no developer portal, no API documentation, no machine-readable specification, and no client SDK for Limehome's own services.
+
+A production API host exists at `https://api.limehome.com` (AWS API Gateway behind CloudFront), but it is a first-party/private backend for Limehome's own web and mobile clients. Probed on 2026-07-19, every discovery path returned either a catch-all `{"message": "Welcome to Limehome API"}` body or an AWS WAF 401 stating "This url is intended to be used only from specific sources". Do not represent this host as a consumable public API, and do not attempt to generate integration code against it.
+
+If you need programmatic access to Limehome inventory, the documented route is a commercial conversation, not self-service onboarding — see the contact surfaces below.
+
+## Company
+
+- [About Limehome](https://www.limehome.com/en/company/): Founded 2018; CEOs Dr. Josef Vollmayr and Cesar de Sousa Freitas; 200+ employees; offices in Munich and Madrid; backed by Picus Capital, HV Capital and Lakestar.
+- [Team](https://www.limehome.com/en/team/)
+- [Sustainability](https://www.limehome.com/en/sustainability/)
+- [Press](https://www.limehome.com/en/press/)
+- [Imprint](https://www.limehome.com/en/imprint/)
+- [Careers](https://career.limehome.de/)
+
+## Guest surfaces
+
+- [Book a stay](https://www.limehome.com/en/): Direct booking, no booking fees.
+- [Membership](https://www.limehome.com/en/membership/): Free membership, 15% discount from the first stay.
+- [Login](https://www.limehome.com/en/login/)
+- [Group booking](https://www.limehome.com/en/group-booking/)
+- [Help and FAQs](https://www.limehome.com/help?lang=en)
+
+## Partners
+
+- [Lease to Limehome](https://www.limehome.com/en/lease-to-limehome/): Real-estate partnership model for property owners and developers.
+
+## Engineering
+
+- [Tech blog](https://www.limehome.com/en/tech-blog/): Engineering-culture writing from the Limehome technology team (pair programming, code reviews, release and quality process, build vs. buy).
+- [GitHub organization](https://github.com/limehome): Nine public repositories — a small number of general-purpose open-source libraries plus hiring exercises. No API client libraries.
+- [bq-schema](https://github.com/limehome/bq-schema): Define BigQuery tables as dataclasses. Published on PyPI as `bq-schema`.
+
+## Security
+
+- [security.txt](https://www.limehome.com/.well-known/security.txt): RFC 9116 policy. Contact `security@limehome.com`, PGP key at https://limehome.com/.well-known/pgp-key.txt, expires 2028-11-27.
+- Note: the `Policy:` field of security.txt points at https://limehome.com/security, which currently returns the site's 404/SPA shell rather than a published policy page.
+
+## Legal
+
+- [Terms and conditions](https://www.limehome.com/en/terms-and-conditions/)
+- [Privacy policy](https://www.limehome.com/en/privacy-policy/)

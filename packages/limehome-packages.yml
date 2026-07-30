@@ -1,0 +1,78 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/limehome
+description: >-
+  First-party packages published by Limehome GmbH. IMPORTANT: Limehome publishes
+  no client SDK for its own API — the api.limehome.com surface is private and
+  undocumented. The packages below are general-purpose open-source engineering
+  libraries the company has released, not API client libraries. For this reason
+  NO `type: SDKs` pointer is wired into apis.yml; doing so would misrepresent the
+  provider's developer surface.
+registries_probed:
+  - registry: pypi
+    result: one first-party package found (bq-schema)
+  - registry: npm
+    result: no @limehome scope or first-party package found
+  - registry: maven-central
+    result: none found
+  - registry: nuget
+    result: none found
+  - registry: pkg.go.dev
+    result: none found
+  - registry: rubygems
+    result: none found
+  - registry: packagist
+    result: none found
+  - registry: crates.io
+    result: none found
+packages:
+  - language: python
+    registry: pypi
+    name: bq-schema
+    version: 0.6.3
+    url: https://pypi.org/project/bq-schema/
+    repository: https://github.com/limehome/bq-schema
+    install: pip install bq-schema
+    official: true
+    api_client: false
+    description: Define your BigQuery tables as dataclasses.
+source_repositories:
+  - name: bq-schema
+    url: https://github.com/limehome/bq-schema
+    language: Python
+    stars: 22
+    archived: false
+    official: true
+    api_client: false
+    description: BigQuery schemas as dataclasses. Published to PyPI as bq-schema.
+  - name: serverless-express-typescript-sqs
+    url: https://github.com/limehome/serverless-express-typescript-sqs
+    language: TypeScript
+    stars: 36
+    archived: true
+    official: true
+    api_client: false
+    description: >-
+      Starter kit for a serverless producer/consumer queue setup with Node.js.
+      Archived; never published to a package registry.
+  - name: django-postalcodes-light
+    url: https://github.com/limehome/django-postalcodes-light
+    language: Python
+    stars: 0
+    archived: false
+    official: false
+    api_client: false
+    description: >-
+      A fork. The PyPI package django-postalcodes-light is maintained upstream by
+      tobiasmcnulty, not by Limehome, so it is not recorded as a Limehome package.
+excluded:
+  note: >-
+    The remaining repositories in the Limehome GitHub organization are hiring
+    exercises, not distributable software, and are excluded from this artifact.
+  repositories:
+    - backend-challenge
+    - backend-challenge-java
+    - backend-challenge-python
+    - backend-challenge-typescript
+    - frontend-challenge-angular
+    - QA-Automation-Engineer-Challenge

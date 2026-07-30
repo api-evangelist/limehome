@@ -1,0 +1,97 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.limehome.com/.well-known/
+description: >-
+  Probe of the /.well-known/ discovery surface on Limehome's public web host and
+  its production API host. Only the RFC 9116 security.txt (and the PGP key it
+  references) are real documents. Both hosts serve catch-all responses for
+  unknown paths, so status code alone is NOT evidence of a document — every
+  entry below records the observed body so soft-404s are not mistaken for hits.
+soft_404_baselines:
+  - host: https://www.limehome.com
+    note: >-
+      Angular SPA shell of exactly 56757 bytes is returned for unknown paths
+      (sometimes with HTTP 200, sometimes 404). Any 56757-byte text/html
+      response is a soft-404, not a document.
+  - host: https://api.limehome.com
+    note: >-
+      Returns a 38-byte JSON body {"message": "Welcome to Limehome API"} for
+      every unmatched path. Routed paths that exist but are protected return an
+      AWS WAF/API Gateway 401 with "This url is intended to be used only from
+      specific sources".
+hosts:
+  - host: https://www.limehome.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        content_type: text/plain
+        bytes: 243
+        verified: true
+        file: limehome-security.txt
+      - path: /.well-known/pgp-key.txt
+        status: 200
+        content_type: text/plain
+        bytes: 3161
+        verified: true
+        file: limehome-pgp-key.txt
+        note: Referenced by the Encryption field of security.txt; a real PGP public key block.
+      - path: /.well-known/openid-configuration
+        status: 403
+        verified: false
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+        verified: false
+      - path: /.well-known/api-catalog
+        status: 403
+        verified: false
+      - path: /.well-known/ai-plugin.json
+        status: 403
+        verified: false
+      - path: /llms.txt
+        status: 200
+        verified: false
+        note: Returned the 56757-byte SPA shell. No llms.txt is published.
+  - host: https://api.limehome.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        verified: false
+        note: Catch-all {"message":"Welcome to Limehome API"} body, not a security.txt.
+      - path: /.well-known/openid-configuration
+        status: 200
+        verified: false
+        note: Catch-all body, not an OIDC discovery document.
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        verified: false
+        note: Catch-all body, not an RFC 8414 document.
+      - path: /.well-known/api-catalog
+        status: 200
+        verified: false
+        note: Catch-all body.
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        verified: false
+        note: Catch-all body.
+      - path: /openapi.json
+        status: 401
+        verified: false
+        note: AWS WAF/API Gateway rejection; path is routed but not publicly readable.
+      - path: /swagger.json
+        status: 401
+        verified: false
+      - path: /v1/openapi.json
+        status: 401
+        verified: false
+      - path: /openapi.yaml
+        status: 200
+        verified: false
+        note: Catch-all body.
+      - path: /graphql
+        status: 200
+        verified: false
+        note: Catch-all body; no GraphQL endpoint exposed.
+findings:
+  - Limehome publishes a valid RFC 9116 security.txt with a security@limehome.com contact and a PGP key.
+  - No OIDC/OAuth discovery, no api-catalog, no ai-plugin.json, and no llms.txt are published.
+  - No public OpenAPI or GraphQL surface could be found on the production API host.
