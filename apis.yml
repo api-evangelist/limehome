@@ -1,24 +1,93 @@
 aid: limehome
 name: Limehome
-description: 'Limehome is a company surfaced as a portfolio company of hv-capital and added to the API
-  Evangelist network as a stub for enrichment. Sector: consumer. This profile is a lead awaiting the enrichment
-  pipeline.'
+description: 'Limehome is a Munich-headquartered digital hospitality operator founded in 2018 that designs,
+  leases and runs fully-equipped design apartments and aparthotels across Europe, from Berlin to Barcelona
+  and Linz to Lecce. The company runs a 100% digital guest journey: guests browse and book units online,
+  receive an access code, and complete check-in and check-out contactlessly with no on-site reception
+  staff. Limehome operates offices in Munich and Madrid with more than 200 employees, is led by CEOs Dr.
+  Josef Vollmayr and Cesar de Sousa Freitas, and is backed by Picus Capital, HV Capital and Lakestar.
+  Revenue comes from direct bookings (fee-free, with a 15% membership discount) alongside a "Lease to
+  Limehome" real-estate partnership model. Limehome runs a production API host at api.limehome.com behind
+  AWS API Gateway, but publishes no public developer portal, documentation or machine-readable
+  specification; that surface is first-party/private. The company does maintain a public GitHub
+  organization with a small number of open-source engineering libraries, and an engineering blog.'
 url: https://raw.githubusercontent.com/api-evangelist/limehome/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://cdn.sanity.io/images/x7iv72nk/production/97cc8c1f97a4a959913d6b75ce965a66f48dda00-1821x1366.jpg
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - hv-capital
-x-tier: stub
-x-tier-reason: portfolio-lead
+- picus-capital
+- lakestar
+x-tier: profiled
+x-tier-reason: no-public-api
+x-public-api: false
+x-public-api-note: 'api.limehome.com resolves and is a real AWS API Gateway origin, but every discovery
+  path probed on 2026-07-19 returned either a catch-all {"message": "Welcome to Limehome API"} body or a
+  WAF 401 ("This url is intended to be used only from specific sources"). No public OpenAPI, developer
+  portal, or API documentation exists.'
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
 - Consumer
+- Hospitality
+- Travel
+- Real Estate
+- Proptech
+- Short Term Rental
+- Aparthotel
+- Germany
+- Europe
 apis: []
+common:
+- type: VulnerabilityDisclosure
+  url: security/limehome-vulnerability-disclosure.yml
+- type: Security
+  url: security/limehome-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/limehome-domain-security.yml
+- type: Website
+  url: https://www.limehome.com/en/
+- type: Blog
+  url: https://www.limehome.com/en/tech-blog/
+- type: Support
+  url: https://www.limehome.com/help?lang=en
+- type: GitHubOrganization
+  url: https://github.com/limehome
+- type: Login
+  url: https://www.limehome.com/en/login/
+- type: TermsOfService
+  url: https://www.limehome.com/en/terms-and-conditions/
+- type: PrivacyPolicy
+  url: https://www.limehome.com/en/privacy-policy/
+- type: Packages
+  url: packages/limehome-packages.yml
+- type: WellKnown
+  url: well-known/limehome-well-known.yml
+- type: SecurityTxt
+  url: well-known/limehome-security.txt
+- type: LLMsTxt
+  url: llms/limehome-llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
