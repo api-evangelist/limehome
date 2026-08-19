@@ -37,7 +37,7 @@ x-public-api-note: 'api.limehome.com resolves and is a real AWS API Gateway orig
   path probed on 2026-07-19 returned either a catch-all {"message": "Welcome to Limehome API"} body or a
   WAF 401 ("This url is intended to be used only from specific sources"). No public OpenAPI, developer
   portal, or API documentation exists.'
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-07-19'
 tags:
